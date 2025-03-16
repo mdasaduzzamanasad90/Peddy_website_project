@@ -59,8 +59,8 @@ function displaypatcard (patcard){
             </div>
             <div class="flex justify-between py-2 lg:py-5 ">
             <button onclick="likebuttonshow(${element.petId})" class="btn lg:px-3 lg:py-2 px-[4px] py-[3px] w-fit h-fit p-0"><img class="lg:h-5 w-2 h-2 lg:w-5" src="images/like.png" alt=""></button>
-            <button class="btn lg:px-3 lg:py-1 w-fit h-fit lg:text-lg text-[7px] px-[4px] py-[2px]">Adopt</button>
-            <button class="btn lg:px-3 lg:py-1 w-fit h-fit lg:text-lg text-[7px] px-[4px] py-[2px]">Details</button>
+            <button onclick="adoptbutton()" class="btn lg:px-3 lg:py-1 w-fit h-fit lg:text-lg text-[7px] px-[4px] py-[2px]">Adopt</button>
+            <button onclick="" class="btn lg:px-3 lg:py-1 w-fit h-fit lg:text-lg text-[7px] px-[4px] py-[2px]">Details</button>
             </div>
         </div>
         `
@@ -95,6 +95,31 @@ function displaylikebuttonshow (id){
     // append
     addthumnal.appendChild(div);
 }
+
+// adopt button
+function adoptbutton() {
+    const la = document.getElementById("counduncontainer");
+    const p = document.createElement("p");
+    p.classList="text-center lg:text-3xl text-xl"
+  
+    let i = 4;
+    howModal();
+    function howModal() {
+      setTimeout(function () {
+        i--;
+        if (i > 0) {
+          p.innerText = `${i}`;
+          la.appendChild(p);
+          howModal();
+        } else {
+          document.getElementById("myfmodal").close();
+          p.innerText = "";
+        }
+      }, 1000);
+    }
+    document.getElementById("myfmodal").showModal();
+
+  }
 
 // click button view more scrol
 function scrol(){
