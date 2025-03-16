@@ -15,9 +15,9 @@ function displaycatgories (categories){
         const creatdiv = document.createElement('div');
         creatdiv.classList= "flex justify-center"
         creatdiv.innerHTML =`
-        <button class="btn flex justify-center items-center lg:gap-3 gap-2 border-[#0E7A8126] border bg-slate-100 rounded-xl lg:w-[150px] w-[100px] lg:px-3 lg:py-8 py-6 px-2">
-            <img class="w-5 lg:w-10 h-5 lg:h-10" src="${element.category_icon}" alt="">
-            <h1 class="font-bold lg:text-xl text-base">${element.category}</h1>
+        <button class="btn flex justify-center items-center lg:gap-2 gap-1 lg:w-[120px] w-[50px] lg:py-6 h-[25px]">
+            <img class="w-4 lg:w-6 h-4 lg:h-6" src="${element.category_icon}" alt="">
+            <h1 class="font-bold lg:text-lg text-[8px]">${element.category}</h1>
         </button>
         `
 
@@ -100,11 +100,11 @@ function displaylikebuttonshow (id){
 function scrol(){
 
     if (screen.width > 480){
-        window.scrollTo(0,1055);
+        window.scrollTo(0,1060);
         
     }
     else{
-        window.scrollTo(0,645)
+        window.scrollTo(0,610)
     }
 
 }
