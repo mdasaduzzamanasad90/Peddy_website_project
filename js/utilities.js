@@ -71,5 +71,18 @@ function displaypatcard (patcard){
 
 }
 
+// click button view more scrol
+function scrol(){
+
+    if (screen.width > 480){
+        window.scrollTo(0,1055);
+        
+    }
+    else{
+        window.scrollTo(0,645)
+    }
+
+}
+
 loadcategories();
 loadpatcard();
