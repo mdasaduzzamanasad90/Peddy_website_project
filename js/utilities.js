@@ -58,7 +58,7 @@ function displaypatcard (patcard){
                 ${!element.price || element.price === ""?`<h1 class="text-[8px] lg:text-lg">Price : Not Available</h1>`:`<h1 id="price" class="text-[8px] lg:text-lg">Price : ${element.price}$</h1>`}
             </div>
             <div class="flex justify-between py-2 lg:py-5 ">
-            <button class="btn lg:px-3 lg:py-2 px-[4px] py-[3px] w-fit h-fit p-0"><img class="lg:h-5 w-2 h-2 lg:w-5" src="images/like.png" alt=""></button>
+            <button onclick="likebuttonshow(${element.petId})" class="btn lg:px-3 lg:py-2 px-[4px] py-[3px] w-fit h-fit p-0"><img class="lg:h-5 w-2 h-2 lg:w-5" src="images/like.png" alt=""></button>
             <button class="btn lg:px-3 lg:py-1 w-fit h-fit lg:text-lg text-[7px] px-[4px] py-[2px]">Adopt</button>
             <button class="btn lg:px-3 lg:py-1 w-fit h-fit lg:text-lg text-[7px] px-[4px] py-[2px]">Details</button>
             </div>
@@ -69,6 +69,31 @@ function displaypatcard (patcard){
         patcontainer.appendChild(div);
     })
 
+}
+
+
+// like button click load data
+function likebuttonshow (id){
+
+   fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
+   .then((res)=>res.json())
+   .then((data)=>displaylikebuttonshow(data.petData))
+   .catch((error)=>console.log(error))
+
+}
+
+// like button click display data
+function displaylikebuttonshow (id){
+
+    // console.log(id);
+    const addthumnal = document.getElementById('clicklikebuttonshowthumnal');
+    const div = document.createElement('div');
+    div.classList= ""
+    div.innerHTML =`
+    <img class="lg:rounded-xl rounded-lg" src="${id.image}" alt="">
+    `
+    // append
+    addthumnal.appendChild(div);
 }
 
 // click button view more scrol
